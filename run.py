@@ -12,7 +12,14 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('save_our_library')
 
-details = SHEET.worksheet('details')
+def get_name_data():
+    """
+    Get name input from user
+    """
+    print("Lets start by telling us who this donation is from...")
+    print("You can also make this anonymous, simply type Anonymous\n")
+    
+    data_name = input("Enter your name here: ")
+    print(f"the data provided is {data_name}")
 
-data = details.get_all_values()
-print(data)
+get_name_data()
