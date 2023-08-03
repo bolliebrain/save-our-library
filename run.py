@@ -12,6 +12,18 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('save_our_library')
 
+"""
+def welcome():
+    Welcome page Save our Library
+"""
+
+"""
+def options():
+    Option 1 - Donate
+    Option 2 - See Donations
+    Option 3 - Exit
+"""
+
 def get_name_data():
     """
     Get name input from user
@@ -20,6 +32,9 @@ def get_name_data():
     print("You can also make this anonymous, simply type Anonymous\n")
     
     data_name = input("Enter your name here: ")
-    print(f"the data provided is {data_name}")
+    validate_name_data(data_name)
+
+def validate_name_data(get_name_data):
+ 
 
 get_name_data()
