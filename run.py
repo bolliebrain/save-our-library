@@ -33,19 +33,27 @@ def get_name_data():
     """
     data_name = " "
 
-    print("Lets start by telling us who this donation is from...")
-    print("You can also make this anonymous, simply type Anonymous\n")
-    data_name = input("Enter your name here: ")
-
-    validate_name_data(data_name)
+    while True:
+        print("Lets start by telling us who this donation is from...")
+        print("You can also make this anonymous, simply type Anonymous\n")
+        data_name = input("Enter your name here: ")
+        
+        if validate_name_data(data_name):
+            break
 
 def validate_name_data(data_name):
+    """
+    Validate data to make sure no numbers or symbols are input
+    """
 
     if any(char.isdigit() for char in data_name):
         print("Error: Name cannot contain numbers or symbols.")
-    elif data_name.isalnum():
+        return False
+    elif not data_name.isalnum():
         print("Error: Name cannot contain numbers or symbols.")
+        return False
     elif type(data_name) == str:
         print(f"Thank you, this Donation is from {data_name}")
+        return True
         
 get_name_data()
