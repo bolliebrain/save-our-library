@@ -82,7 +82,20 @@ def validate_donation_data(donation_amount):
         print(f"You have donated £{donation_amount}")
         return True
 
+def get_message():
+    """
+    Get message input from user
+    """
+    message_data = " "
+    print("Feel free to leave a message on our wall for people to see")
+    message_data = input("Message: ")
+
+    if message_data:
+        print("thankyou")
+
 get_name_data()
 
 get_donation_data()
+
+get_message()
 
