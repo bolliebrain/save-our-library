@@ -55,5 +55,34 @@ def validate_name_data(data_name):
     elif type(data_name) == str:
         print(f"Thank you, this Donation is from {data_name}")
         return True
+
+def get_donation_data():
+    """
+    Get donation input from user
+    """
+    donation_amount = 0
+
+    while True:
+        print("How much would you like to Donate to Save our Library?")
+        print("Enter an amount below, we would appreciate you rounding your donation to the pound")
+        donation_amount = input("I would like to donate £")
         
+        if validate_donation_data(donation_amount):
+            break
+
+def validate_donation_data(donation_amount):
+    """
+    Validate data to make sure numbers are input only
+    """
+
+    if not donation_amount.isdigit():
+        print("Error: please enter amount in numbers only")
+        return False
+    elif type(donation_amount) == str:
+        print(f"You have donated £{donation_amount}")
+        return True
+
 get_name_data()
+
+get_donation_data()
+
