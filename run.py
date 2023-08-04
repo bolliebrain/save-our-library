@@ -63,8 +63,11 @@ def update_name(data_name):
     """
 
     print("Adding name to profile")
+    test = []
+    test.append(data_name)
+    print(test)
     details_name_worksheet = SHEET.worksheet("details")
-    details_name_worksheet.append_row(data_name)
+    details_name_worksheet.append_row(test)
     print("Added name successfully")
 
 def get_donation_data():
