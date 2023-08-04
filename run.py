@@ -53,8 +53,19 @@ def validate_name_data(data_name):
         print("Error: Name cannot contain numbers or symbols.")
         return False
     elif type(data_name) == str:
-        print(f"Thank you, this Donation is from {data_name}")
+        print(f"Thank you, this Donation is from {data_name}\n")
         return True
+        update_name()
+
+def update_name():
+    """
+    update details worksheet to add a new row with name data
+    """
+    print("Adding name to profile")
+
+    details_name_worksheet = SHEET.worksheet("details")
+    details_name_worksheet.append_row(data_name)
+    print("Added name successfully")
 
 def get_donation_data():
     """
@@ -93,7 +104,11 @@ def get_message():
     if message_data:
         print("thankyou")
 
+
+
 get_name_data()
+
+update_name()
 
 get_donation_data()
 
