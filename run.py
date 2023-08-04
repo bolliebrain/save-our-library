@@ -39,7 +39,6 @@ def get_name_data():
         data_name = input("Enter your name here: ")
         
         if validate_name_data(data_name):
-            update_name(data_name)
             break
 
 def validate_name_data(data_name):
@@ -57,19 +56,6 @@ def validate_name_data(data_name):
         print(f"Thank you, this Donation is from {data_name}\n")
         return True
         
-def update_name(data_name):
-    """
-    update details worksheet to add a new row with name data
-    """
-
-    print("Adding name to profile")
-    test = []
-    test.append(data_name)
-    print(test)
-    details_name_worksheet = SHEET.worksheet("details")
-    details_name_worksheet.append_row(test)
-    print("Added name successfully")
-
 def get_donation_data():
     """
     Get donation input from user
@@ -104,14 +90,33 @@ def get_message():
     print("Feel free to leave a message on our wall for people to see")
     message_data = input("Message: ")
 
-    if message_data:
-        print("thankyou")
+def update_worksheet(data_name, donation_amount, message_data):
+    """
+    update details worksheet to add a new row with name data
+    """
+    return data_name
+    return donation_amount
+    return message_data
+
+    all_data = data_name + donation_amount + message_data
+    print(all_data)
+
+    results = []
+    results.append(all_data)
+    print(results)
+    details_name_worksheet = SHEET.worksheet("details")
+    details_name_worksheet.append_row(results)
+    print("Added data successfully")
+    
 
 
+def main():
+    get_name_data()
 
-get_name_data()
+    get_donation_data()
 
-get_donation_data()
+    get_message()
 
-get_message()
+    update_worksheet()
 
+main()
