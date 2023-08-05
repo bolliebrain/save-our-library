@@ -13,29 +13,44 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('save_our_library')
 
 
-
-"""
 def welcome():
-    Welcome page Save our Library
-"""
+    print("Save our local Library\n")
+    print("More and more libraries are closing every year...\n")
+    print("We are raising money to keep our local library open\n")
+    print("What would you like to do today?\n")
+    print("Option 1 - I would like to Donate\n")
+    print("Option 2 - I would like to see Donations\n")
 
-"""
-def options():
-    Option 1 - Donate
-    Option 2 - See Donations
-    Option 3 - Exit
-"""
+    menu_option = 0
 
+    while True: 
+        menu_option = input("Option... ")
+
+        if validate_option(menu_option):
+            break
+
+def validate_option(menu_option):
+    """
+    check that option answer is 1, 2 or 3
+    """
+    """
+    menu_option == '2':
+    """
+    if menu_option == '1':
+        return True
+    else:
+        print("Error: select 1, 2 or 3")
+        return False
 
 def get_name_data():
     """
     Get name input from user
     """
     data_name = " "
+    print("Lets start by telling us who this donation is from...")
+    print("You can also make this anonymous, simply type Anonymous\n")
 
     while True:
-        print("Lets start by telling us who this donation is from...")
-        print("You can also make this anonymous, simply type Anonymous\n")
         data_name = input("Enter your name here: ")
         
         if validate_name_data(data_name):
@@ -55,7 +70,8 @@ def validate_name_data(data_name):
     elif type(data_name) == str:
         print(f"Thank you, this Donation is from {data_name}\n")
         return True
-        
+
+
 def get_donation_data():
     """
     Get donation input from user
@@ -90,10 +106,13 @@ def get_message():
     print("Feel free to leave a message on our wall for people to see")
     message_data = input("Message: ")
 
+    return
+
+"""
 def update_worksheet(data_name, donation_amount, message_data):
-    """
+    
     update details worksheet to add a new row with name data
-    """
+    
     return data_name
     return donation_amount
     return message_data
@@ -107,16 +126,28 @@ def update_worksheet(data_name, donation_amount, message_data):
     details_name_worksheet = SHEET.worksheet("details")
     details_name_worksheet.append_row(results)
     print("Added data successfully")
-    
+"""
 
+def thank_you():
+    return data_name
+    
+    print("Thank you for your donation, you will appear on our wall\n")
+    print(f"We have another donation of £{donation_amount}from{data_name}")
+    print(message_data)
 
 def main():
+    """
+    update_worksheet()
+    """
+
+    welcome()
+
     get_name_data()
 
     get_donation_data()
 
     get_message()
 
-    update_worksheet()
+    thank_you()
 
 main()
