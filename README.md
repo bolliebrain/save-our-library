@@ -1,3 +1,46 @@
+<h1>Save Our Library</h1>
+
+[View the live project here] 
+
+Save Our Library is a command line application to raise funds for local libraries.
+
+The user can interact with the application to make a donation and view other donations made.
+
+The fundraising data is stored in an external Google Spreadsheet.
+
+## Index - Table of Contents
+*[User Experience (UX)]
+*[Features]
+*[Design]
+*[Technologies Used]
+*[Testing]
+*[Deployment]
+*[Credits]
+
+## User Experience (UX)
+
+## Features
+
+## Design
+
+## Technologes Used
+
+### Languages Used
+
+- [Python 3.8.10] (https://www.python.org/)
+
+## Testing
+
+## Deployment
+
+## Credits
+
+
+
+
+
+
+
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
 Welcome,
