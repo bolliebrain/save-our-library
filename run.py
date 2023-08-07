@@ -115,15 +115,14 @@ def get_message():
     return message_data
 
 def thank_you(data_name, donation_amount, message_data):
-    
+
     print(f'We have another donation of £{donation_amount} from {data_name}')
     print(f'...{message_data}')
- 
+
     """
-    print("Thank you for your donation, you will appear on our wall\n")
-    print(f"We have another donation of £{thank_you(donation_amount)} from {thank_you(data_name)}")
-    print(thank_you(message_data))
-    """
+    print('Our total amount raised is .....')
+    print('Drum roll please...')
+    print(Calculate amount)
 
 
 """
