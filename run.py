@@ -55,6 +55,8 @@ def get_name_data():
         
         if validate_name_data(data_name):
             break
+    
+    return data_name
 
 def validate_name_data(data_name):
     """
@@ -86,6 +88,8 @@ def get_donation_data():
         if validate_donation_data(donation_amount):
             break
 
+    return donation_amount
+
 def validate_donation_data(donation_amount):
     """
     Validate data to make sure numbers are input only
@@ -97,6 +101,8 @@ def validate_donation_data(donation_amount):
     elif type(donation_amount) == str:
         print(f"You have donated £{donation_amount}")
         return True
+    
+    return donation_amount
 
 def get_message():
     """
@@ -106,7 +112,19 @@ def get_message():
     print("Feel free to leave a message on our wall for people to see")
     message_data = input("Message: ")
 
-    return
+    return message_data
+
+def thank_you(data_name, donation_amount, message_data):
+    
+    print(f'We have another donation of £{donation_amount} from {data_name}')
+    print(f'...{message_data}')
+ 
+    """
+    print("Thank you for your donation, you will appear on our wall\n")
+    print(f"We have another donation of £{thank_you(donation_amount)} from {thank_you(data_name)}")
+    print(thank_you(message_data))
+    """
+
 
 """
 def update_worksheet(data_name, donation_amount, message_data):
@@ -128,26 +146,23 @@ def update_worksheet(data_name, donation_amount, message_data):
     print("Added data successfully")
 """
 
-def thank_you():
-    return data_name
-    
-    print("Thank you for your donation, you will appear on our wall\n")
-    print(f"We have another donation of £{donation_amount}from{data_name}")
-    print(message_data)
-
 def main():
     """
     update_worksheet()
     """
-
+    
     welcome()
+    
+    name = get_name_data()
+    data_name = [name]
 
-    get_name_data()
+    donation = get_donation_data()
+    donation_amount = [donation]
 
-    get_donation_data()
+    message = get_message()
+    message_data = [message]
+    
+    thankyou = thank_you(data_name,donation_amount,message_data)
 
-    get_message()
-
-    thank_you()
 
 main()
