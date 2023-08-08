@@ -123,32 +123,20 @@ def thank_you(data_name, donation_amount, message_data):
     print('Our total amount raised is .....')
     print('Drum roll please...')
     print(Calculate amount)
+    """
 
-
-"""
 def update_worksheet(data_name, donation_amount, message_data):
-    
+    """
     update details worksheet to add a new row with name data
-    
-    return data_name
-    return donation_amount
-    return message_data
-
+    """
+    print("...updating details")
     all_data = data_name + donation_amount + message_data
-    print(all_data)
 
-    results = []
-    results.append(all_data)
-    print(results)
     details_name_worksheet = SHEET.worksheet("details")
-    details_name_worksheet.append_row(results)
-    print("Added data successfully")
-"""
-
+    details_name_worksheet.append_row(all_data)
+    print("Added details with data successfully")
+    
 def main():
-    """
-    update_worksheet()
-    """
     
     welcome()
     
@@ -163,5 +151,6 @@ def main():
     
     thankyou = thank_you(data_name,donation_amount,message_data)
 
+    update_worksheet(data_name, donation_amount, message_data)
 
 main()
