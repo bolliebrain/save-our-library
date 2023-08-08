@@ -143,9 +143,9 @@ def calculate_total(details_name_worksheet, total_donations):
     """
     calculating total raised column, removing the first value
     """
-    
+    """
     total_donations = details_name_worksheet.col_values(2)[1:]
-    
+    """
     total_raised = 0
     
 
