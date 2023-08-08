@@ -130,7 +130,10 @@ def update_worksheet(data_name, donation_amount, message_data):
     update details worksheet to add a new row with name data
     """
     print("...updating details")
-    all_data = data_name + donation_amount + message_data
+    all_data = [data_name, donation_amount, message_data]
+
+    print(all_data)
+
 
     details_name_worksheet = SHEET.worksheet("details")
     details_name_worksheet.append_row(all_data)
@@ -141,13 +144,13 @@ def main():
     welcome()
     
     name = get_name_data()
-    data_name = [name]
+    data_name = name
 
     donation = get_donation_data()
-    donation_amount = [donation]
+    donation_amount = int(donation)
 
     message = get_message()
-    message_data = [message]
+    message_data = message
     
     thankyou = thank_you(data_name,donation_amount,message_data)
 
