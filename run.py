@@ -32,11 +32,12 @@ def welcome():
 def validate_option(menu_option):
     """
     check that option answer is 1, 2 or 3
+
     """
-    """
-    menu_option == '2':
-    """
+   
     if menu_option == '1':
+        return True 
+    elif menu_option == '2':
         return True
     else:
         print("Error: select 1, 2 or 3")
@@ -138,19 +139,24 @@ def update_worksheet(data_name, donation_amount, message_data, details_name_work
     print("Added details with data successfully")
 
 
-def calculate_total(details_name_worksheet):
+def calculate_total(details_name_worksheet, total_donations):
     """
     calculating total raised column, removing the first value
     """
+    
     total_donations = details_name_worksheet.col_values(2)[1:]
-
+    
     total_raised = 0
-        
+    
+
     for val in total_donations:
         total_raised += int(val)
 
     print(f"So far we have raised....£{total_raised}!")
 
+def see_donations(total_donations):
+
+    print(total_donations)
 
 def main():
     
@@ -169,7 +175,12 @@ def main():
     
     details_name_worksheet = SHEET.worksheet("details")
     update_worksheet(data_name, donation_amount, message_data, details_name_worksheet)
+    
+    total_donations = details_name_worksheet.col_values(2)[1:]
 
-    all_donations = calculate_total(details_name_worksheet)
+    all_donations = calculate_total(details_name_worksheet, total_donations)
 
+    see_donations(total_donations)
+
+    
 main()
