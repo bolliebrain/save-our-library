@@ -133,11 +133,8 @@ def update_worksheet(data_name, donation_amount, message_data, details_name_work
     print("...updating details")
     all_data = [data_name, donation_amount, message_data]
 
-    print(all_data)
-
     details_name_worksheet.append_row(all_data)
     print("Added details with data successfully")
-
 
 def calculate_total(details_name_worksheet, total_donations):
     """
@@ -152,6 +149,8 @@ def calculate_total(details_name_worksheet, total_donations):
     print(f"So far we have raised....£{total_raised}!")
 
 def see_donations(total_donations, details_name_worksheet, raised):
+
+    print(raised)
 
     print(f"So far we have raised {raised}")
 
@@ -179,8 +178,10 @@ def main():
     update_worksheet(data_name, donation_amount, message_data, details_name_worksheet)
     
     total_donations = details_name_worksheet.col_values(2)[1:]
+    
+    total_raised = 0
 
-    all_donations = calculate_total(details_name_worksheet, total_donations)
+    all_donations = calculate_total(details_name_worksheet, total_donations, total_raised)
     raised = all_donations
 
     see_donations(total_donations, details_name_worksheet, raised)
