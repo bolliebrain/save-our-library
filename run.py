@@ -154,9 +154,14 @@ def calculate_total(details_name_worksheet, total_donations):
 
     print(f"So far we have raised....£{total_raised}!")
 
-def see_donations(total_donations):
+def see_donations(total_donations, details_name_worksheet):
 
-    print(total_donations)
+    print(f"So far we have raised {}")
+
+    total_messages = details_name_worksheet.col_values(3)[1:]
+
+    for i in range(len(total_donations)):
+        print('£' + total_donations[i] + '\t' + total_messages[i])
 
 def main():
     
@@ -180,7 +185,9 @@ def main():
 
     all_donations = calculate_total(details_name_worksheet, total_donations)
 
-    see_donations(total_donations)
+    see_donations(total_donations, details_name_worksheet)
+
+    total_raised = total_donations
 
     
 main()
