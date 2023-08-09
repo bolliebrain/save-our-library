@@ -13,7 +13,7 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('save_our_library')
 
 
-def welcome():
+def welcome(see_donations):
     print("Save our local Library\n")
     print("More and more libraries are closing every year...\n")
     print("We are raising money to keep our local library open\n")
@@ -27,21 +27,40 @@ def welcome():
         menu_option = input("Option... ")
 
         if validate_option(menu_option):
+            print(menu_option)
             break
+        
+        # if validate_option(menu_option) == '2':
+        #     see_donations(total_donations, details_name_worksheet, all_donations)
+        #     break
+        
 
 def validate_option(menu_option):
     """
     check that option answer is 1, 2 or 3
-
     """
-   
     if menu_option == '1':
-        return True 
+        return True
     elif menu_option == '2':
         return True
     else:
-        print("Error: select 1, 2 or 3")
+        print("Error: select 1 or 2")
         return False
+
+def see_donations(total_donations, details_name_worksheet, all_donations):
+
+    calculate_total(details_name_worksheet, total_donations)
+
+    """
+    print(all_donations)
+
+    print(f"So far we have raised {all_donations}")
+    """
+
+    total_messages = details_name_worksheet.col_values(3)[1:]
+
+    for i in range(len(total_donations)):
+        print('£' + total_donations[i] + '\t' + total_messages[i])
 
 def get_name_data():
     """
@@ -147,22 +166,12 @@ def calculate_total(details_name_worksheet, total_donations):
         total_raised += int(val)
 
     print(f"So far we have raised....£{total_raised}!")
-
-def see_donations(total_donations, details_name_worksheet, raised):
-
-    print(raised)
-
-    print(f"So far we have raised {raised}")
-
-    total_messages = details_name_worksheet.col_values(3)[1:]
-
-    for i in range(len(total_donations)):
-        print('£' + total_donations[i] + '\t' + total_messages[i])
+    return
 
 def main():
     
-    welcome()
-    
+    welcome(see_donations)
+
     name = get_name_data()
     data_name = name
 
@@ -178,12 +187,11 @@ def main():
     update_worksheet(data_name, donation_amount, message_data, details_name_worksheet)
     
     total_donations = details_name_worksheet.col_values(2)[1:]
-    
+
     total_raised = 0
 
-    all_donations = calculate_total(details_name_worksheet, total_donations, total_raised)
-    raised = all_donations
+    all_donations = calculate_total(details_name_worksheet, total_donations)
 
-    see_donations(total_donations, details_name_worksheet, raised)
+    see_donations(total_donations, details_name_worksheet, all_donations)
 
 main()
