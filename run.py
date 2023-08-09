@@ -143,20 +143,17 @@ def calculate_total(details_name_worksheet, total_donations):
     """
     calculating total raised column, removing the first value
     """
-    """
-    total_donations = details_name_worksheet.col_values(2)[1:]
-    """
+
     total_raised = 0
     
-
     for val in total_donations:
         total_raised += int(val)
 
     print(f"So far we have raised....£{total_raised}!")
 
-def see_donations(total_donations, details_name_worksheet):
+def see_donations(total_donations, details_name_worksheet, raised):
 
-    print(f"So far we have raised {}")
+    print(f"So far we have raised {raised}")
 
     total_messages = details_name_worksheet.col_values(3)[1:]
 
@@ -184,10 +181,8 @@ def main():
     total_donations = details_name_worksheet.col_values(2)[1:]
 
     all_donations = calculate_total(details_name_worksheet, total_donations)
+    raised = all_donations
 
-    see_donations(total_donations, details_name_worksheet)
+    see_donations(total_donations, details_name_worksheet, raised)
 
-    total_raised = total_donations
-
-    
 main()
