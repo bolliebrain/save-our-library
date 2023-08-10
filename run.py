@@ -168,30 +168,43 @@ def calculate_total(details_name_worksheet, total_donations):
     print(f"So far we have raised....£{total_raised}!")
     return
 
+
+
 def main():
+    while True:
+        print("Save our local Library\n")
+        print("More and more libraries are closing every year...\n")
+        print("We are raising money to keep our local library open\n")
+        print("What would you like to do today?\n")
+        print("Option 1 - I would like to Donate\n")
+        print("Option 2 - I would like to see Donations\n")
+        print("Option 3 - Exit\n")
+
+        details_name_worksheet = SHEET.worksheet("details")
+
+        menu_option = input("Option... ")
+        if menu_option == '1':
+            data_name = get_name_data()
+            donation_amount = get_donation_data()
+            message_data = get_message()
+            thankyou = thank_you(data_name,donation_amount,message_data)
+            update_worksheet(data_name, donation_amount, message_data, details_name_worksheet)
+
+            total_donations = details_name_worksheet.col_values(2)[1:]
+            all_donations = calculate_total(details_name_worksheet, total_donations)
+
+        elif menu_option == '2':
+            total_donations = details_name_worksheet.col_values(2)[1:]
+            all_donations = calculate_total(details_name_worksheet, total_donations)
+            see_donations(total_donations, details_name_worksheet, all_donations)
+
+        elif menu_option == '3':
+            print('Goodbye !')
+            break
+        else:
+            print("Error: select 1 or 2 or 3")
+            input('Press Enter to continue...\n')
+            
     
-    welcome(see_donations)
-
-    name = get_name_data()
-    data_name = name
-
-    donation = get_donation_data()
-    donation_amount = int(donation)
-
-    message = get_message()
-    message_data = message
-    
-    thankyou = thank_you(data_name,donation_amount,message_data)
-    
-    details_name_worksheet = SHEET.worksheet("details")
-    update_worksheet(data_name, donation_amount, message_data, details_name_worksheet)
-    
-    total_donations = details_name_worksheet.col_values(2)[1:]
-
-    total_raised = 0
-
-    all_donations = calculate_total(details_name_worksheet, total_donations)
-
-    see_donations(total_donations, details_name_worksheet, all_donations)
 
 main()
