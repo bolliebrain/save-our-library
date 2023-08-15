@@ -16,7 +16,7 @@ def clear():
     """
     clear the screen
     """
-    print('/033c')
+    print('\033c')
 
 def welcome(see_donations):
     print("Save our local Library\n")
