@@ -158,7 +158,7 @@ def calculate_total(details_name_worksheet, total_donations):
     for val in total_donations:
         total_raised += int(val)
 
-    print(f"So far we have raised....£{total_raised}!")
+    print(f"So far we have raised....£{total_raised}!\n")
     return
 
 def clear():
@@ -198,7 +198,6 @@ def main():
         elif menu_option == '3':
             print('Goodbye !')
             clear()
-            break
         else:
             print("Error: select 1 or 2 or 3")
             input('Press Enter to continue...\n')
