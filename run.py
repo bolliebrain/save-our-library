@@ -185,7 +185,7 @@ def main():
 
         elif menu_option == '2':
             total_donations = details_name_worksheet.col_values(2)[1:]
-            # all_donations = calculate_total(details_name_worksheet, total_donations)
+            all_donations = calculate_total(details_name_worksheet, total_donations)
             see_donations(total_donations, details_name_worksheet, all_donations)
 
         elif menu_option == '3':
