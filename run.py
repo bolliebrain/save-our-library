@@ -12,6 +12,12 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('save_our_library')
 
+def clear():
+    """
+    clear the screen
+    """
+    print('/033c')
+
 def welcome(see_donations):
     print("Save our local Library\n")
     print("More and more libraries are closing every year...\n")
@@ -162,6 +168,7 @@ def calculate_total(details_name_worksheet, total_donations):
 
 def main():
     while True:
+        clear()
         print("Save our local Library\n")
         print("More and more libraries are closing every year...\n")
         print("We are raising money to keep our local library open\n")
@@ -190,6 +197,7 @@ def main():
 
         elif menu_option == '3':
             print('Goodbye !')
+            clear()
             break
         else:
             print("Error: select 1 or 2 or 3")
