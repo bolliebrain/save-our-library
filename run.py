@@ -135,23 +135,17 @@ def get_message():
 def thank_you(data_name, donation_amount, message_data):
 
     print(f'We have another donation of £{donation_amount} from {data_name}')
-    print(f'...{message_data}')
-
-    """
-    print('Our total amount raised is .....')
-    print('Drum roll please...')
-    print(Calculate amount)
-    """
+    print(f'...{message_data}\n')
 
 def update_worksheet(data_name, donation_amount, message_data, details_name_worksheet):
     """
     update details worksheet to add a new row with name data
     """
-    print("...updating details")
+    print("...updating details\n")
     all_data = [data_name, donation_amount, message_data]
 
     details_name_worksheet.append_row(all_data)
-    print("Added details with data successfully")
+    print("Added details with data successfully\n")
 
 def calculate_total(details_name_worksheet, total_donations):
     """
@@ -191,7 +185,7 @@ def main():
 
         elif menu_option == '2':
             total_donations = details_name_worksheet.col_values(2)[1:]
-            all_donations = calculate_total(details_name_worksheet, total_donations)
+            # all_donations = calculate_total(details_name_worksheet, total_donations)
             see_donations(total_donations, details_name_worksheet, all_donations)
 
         elif menu_option == '3':
