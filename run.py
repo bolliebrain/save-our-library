@@ -13,39 +13,46 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('save_our_library')
 
 
-def welcome(see_donations):
-    print("Save our local Library\n")
-    print("More and more libraries are closing every year...\n")
-    print("We are raising money to keep our local library open\n")
-    print("What would you like to do today?\n")
-    print("Option 1 - I would like to Donate\n")
-    print("Option 2 - I would like to see Donations\n")
+#def welcome(see_donations):
+    #print("Save our local Library\n")
+    #print("More and more libraries are closing every year...\n")
+    #print("We are raising money to keep our local library open\n")
+    #print("What would you like to do today?\n")
+    #print("Option 1 - I would like to Donate\n")
+    #print("Option 2 - I would like to see Donations\n")
 
-    menu_option = 0
+    #menu_option = 0
 
-    while True: 
-        menu_option = input("Option... \n")
+    #while True: 
+        #menu_option = input("Option... \n")
 
-        if validate_option(menu_option):
-            print(menu_option)
-            break
+        #if validate_option(menu_option):
+            #print(menu_option)
+            #break
         
         # if validate_option(menu_option) == '2':
         #     see_donations(total_donations, details_name_worksheet, all_donations)
         #     break
         
 
-def validate_option(menu_option):
+#def validate_option(menu_option):
+ #   """
+  #  check option answer is 1, 2 or 3
+   # """
+
+    #if menu_option == '1':
+    #    return True
+    #elif menu_option == '2':
+    #    return True
+    #else:
+     #   print("Error: select 1 or 2")
+      #  return False
+
+def clear():
     """
-    check that option answer is 1, 2 or 3
+    clear the screen
     """
-    if menu_option == '1':
-        return True
-    elif menu_option == '2':
-        return True
-    else:
-        print("Error: select 1 or 2")
-        return False
+    print('\033c')
 
 def see_donations(total_donations, details_name_worksheet, all_donations):
 
@@ -161,12 +168,6 @@ def calculate_total(details_name_worksheet, total_donations):
     print(f"So far we have raised....£{total_raised}!\n")
     return
 
-def clear():
-    """
-    clear the screen
-    """
-    print('\033c')
-
 def main():
     while True:
         print("Save our local Library\n")
@@ -189,17 +190,22 @@ def main():
 
             total_donations = details_name_worksheet.col_values(2)[1:]
             all_donations = calculate_total(details_name_worksheet, total_donations)
+            input('Press any button to take you back to the menu...\n')
+            clear()
 
         elif menu_option == '2':
             total_donations = details_name_worksheet.col_values(2)[1:]
             all_donations = calculate_total(details_name_worksheet, total_donations)
             see_donations(total_donations, details_name_worksheet, all_donations)
+            ("\n")
+            input('Press any button to take you back to the menu...\n')
+            clear()
 
         elif menu_option == '3':
-            print('Goodbye !')
-            clear()
+            print('Thanks for visiting!')
+            break
+
         else:
             print("Error: select 1 or 2 or 3")
             input('Press Enter to continue...\n')
-
 main()
