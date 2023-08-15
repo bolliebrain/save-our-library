@@ -12,7 +12,6 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('save_our_library')
 
-
 def welcome(see_donations):
     print("Save our local Library\n")
     print("More and more libraries are closing every year...\n")
@@ -24,7 +23,7 @@ def welcome(see_donations):
     menu_option = 0
 
     while True: 
-        menu_option = input("Option... ")
+        menu_option = input("Option... \n")
 
         if validate_option(menu_option):
             print(menu_option)
@@ -71,7 +70,7 @@ def get_name_data():
     print("You can also make this anonymous, simply type Anonymous\n")
 
     while True:
-        data_name = input("Enter your name here: ")
+        data_name = input("Enter your name here: \n")
         
         if validate_name_data(data_name):
             break
@@ -92,7 +91,6 @@ def validate_name_data(data_name):
     elif type(data_name) == str:
         print(f"Thank you, this Donation is from {data_name}\n")
         return True
-
 
 def get_donation_data():
     """
@@ -168,8 +166,6 @@ def calculate_total(details_name_worksheet, total_donations):
     print(f"So far we have raised....£{total_raised}!")
     return
 
-
-
 def main():
     while True:
         print("Save our local Library\n")
@@ -182,7 +178,7 @@ def main():
 
         details_name_worksheet = SHEET.worksheet("details")
 
-        menu_option = input("Option... ")
+        menu_option = input("Option... \n")
         if menu_option == '1':
             data_name = get_name_data()
             donation_amount = get_donation_data()
@@ -204,7 +200,5 @@ def main():
         else:
             print("Error: select 1 or 2 or 3")
             input('Press Enter to continue...\n')
-            
-    
 
 main()
