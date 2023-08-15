@@ -12,42 +12,6 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('save_our_library')
 
-
-#def welcome(see_donations):
-    #print("Save our local Library\n")
-    #print("More and more libraries are closing every year...\n")
-    #print("We are raising money to keep our local library open\n")
-    #print("What would you like to do today?\n")
-    #print("Option 1 - I would like to Donate\n")
-    #print("Option 2 - I would like to see Donations\n")
-
-    #menu_option = 0
-
-    #while True: 
-        #menu_option = input("Option... \n")
-
-        #if validate_option(menu_option):
-            #print(menu_option)
-            #break
-        
-        # if validate_option(menu_option) == '2':
-        #     see_donations(total_donations, details_name_worksheet, all_donations)
-        #     break
-        
-
-#def validate_option(menu_option):
- #   """
-  #  check option answer is 1, 2 or 3
-   # """
-
-    #if menu_option == '1':
-    #    return True
-    #elif menu_option == '2':
-    #    return True
-    #else:
-     #   print("Error: select 1 or 2")
-      #  return False
-
 def clear():
     """
     clear the screen
