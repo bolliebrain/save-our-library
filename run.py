@@ -12,11 +12,6 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('save_our_library')
 
-def clear():
-    """
-    clear the screen
-    """
-    print('\033c')
 
 def welcome(see_donations):
     print("Save our local Library\n")
@@ -106,7 +101,7 @@ def get_donation_data():
 
     while True:
         print("How much would you like to Donate to Save our Library?")
-        print("Enter an amount below, we would appreciate you rounding your donation to the pound")
+        print("Enter an amount below (rounding your donation to the pound)")
         donation_amount = input("I would like to donate £")
         
         if validate_donation_data(donation_amount):
@@ -166,9 +161,14 @@ def calculate_total(details_name_worksheet, total_donations):
     print(f"So far we have raised....£{total_raised}!")
     return
 
+def clear():
+    """
+    clear the screen
+    """
+    print('\033c')
+
 def main():
     while True:
-        clear()
         print("Save our local Library\n")
         print("More and more libraries are closing every year...\n")
         print("We are raising money to keep our local library open\n")
