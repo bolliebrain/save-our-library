@@ -170,6 +170,7 @@ def calculate_total(details_name_worksheet, total_donations):
 
 def main():
     while True:
+        clear()
         print("Save our local Library\n")
         print("More and more libraries are closing every year...\n")
         print("We are raising money to keep our local library open\n")
