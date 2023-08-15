@@ -59,9 +59,7 @@ def see_donations(total_donations, details_name_worksheet, all_donations):
     calculate_total(details_name_worksheet, total_donations)
 
     """
-    print(all_donations)
-
-    print(f"So far we have raised {all_donations}")
+    print all donations
     """
 
     total_messages = details_name_worksheet.col_values(3)[1:]
@@ -183,6 +181,7 @@ def main():
 
         menu_option = input("Option... \n")
         if menu_option == '1':
+            clear()
             data_name = get_name_data()
             donation_amount = get_donation_data()
             message_data = get_message()
@@ -192,18 +191,18 @@ def main():
             total_donations = details_name_worksheet.col_values(2)[1:]
             all_donations = calculate_total(details_name_worksheet, total_donations)
             input('Press any button to take you back to the menu...\n')
-            clear()
 
         elif menu_option == '2':
+            clear()
             total_donations = details_name_worksheet.col_values(2)[1:]
             all_donations = calculate_total(details_name_worksheet, total_donations)
             see_donations(total_donations, details_name_worksheet, all_donations)
             ("\n")
             input('Press any button to take you back to the menu...\n')
-            clear()
 
         elif menu_option == '3':
-            print('Thanks for visiting!')
+            clear()
+            print('Thanks for visiting... Come back again soon!')
             break
 
         else:
