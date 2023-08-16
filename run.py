@@ -19,12 +19,11 @@ def clear():
     print('\033c')
 
 def see_donations(total_donations, details_name_worksheet):
+    """
+    Prints all donations and associated messages input by user
+    """
 
     calculate_total(details_name_worksheet, total_donations)
-
-    """
-    print all donations
-    """
 
     total_messages = details_name_worksheet.col_values(3)[1:]
 
@@ -33,8 +32,9 @@ def see_donations(total_donations, details_name_worksheet):
 
 def get_name_data():
     """
-    Get name input from user
+    Gets name input from user after passing validation
     """
+
     data_name = " "
     print("Lets start by telling us who this donation is from...")
     print("You can also make this anonymous, simply type Anonymous\n")
@@ -49,14 +49,15 @@ def get_name_data():
 
 def validate_name_data(data_name):
     """
-    Validate data to make sure no numbers or symbols are input
+    Validates data to make sure no numbers or symbols are input
+    Prints name back to user
     """
 
     if any(char.isdigit() for char in data_name):
-        print("Error: Name cannot contain numbers or symbols.")
+        print("Error: Name cannot be blank or contain numbers or symbols.")
         return False
     elif not data_name.isalnum():
-        print("Error: Name cannot contain numbers or symbols.")
+        print("Error: Name cannot be blank or contain numbers or symbols.")
         return False
     elif type(data_name) == str:
         print(f"Thank you, this Donation is from {data_name}\n")
@@ -64,8 +65,9 @@ def validate_name_data(data_name):
 
 def get_donation_data():
     """
-    Get donation input from user
+    Gets donation input from user after passing validation
     """
+
     donation_amount = 0
 
     while True:
@@ -80,7 +82,8 @@ def get_donation_data():
 
 def validate_donation_data(donation_amount):
     """
-    Validate data to make sure numbers are input only
+    Validate data to make sure numbers only are input
+    Prints data back to user
     """
 
     if not donation_amount.isdigit():
@@ -95,7 +98,9 @@ def validate_donation_data(donation_amount):
 def get_message():
     """
     Get message input from user
+    If message is blank without spaces, Anonymous is automatically input
     """
+
     message_data = " "
     print("Feel free to leave a message on our wall for people to see")
     message_data = input("Message: ")
@@ -106,17 +111,23 @@ def get_message():
     return message_data
 
 def thank_you(data_name, donation_amount, message_data):
-
-    print(f'We have another donation of £{donation_amount} from {data_name}')
-    print(f'...{message_data}\n')
-
-def update_worksheet(data_name, donation_amount, message_data, details_name_worksheet):
     """
-    update details worksheet to add a new row with name data
+    prints name, donation and message back to user
     """
-    print('...updating details\n')
 
-    all_data = [data_name, int(donation_amount), message_data]
+    print(f"We have another donation of £{donation_amount} from {data_name}")
+    print(f"...{message_data}\n")
+
+def update_worksheet(data_name, donation_amount, message_data, 
+details_name_worksheet):
+    """
+    update details worksheet to add a new row with name, donation
+    and message data. Cuts characters after 50 for name and message.
+    """
+
+    print("...updating details\n")
+
+    all_data = [data_name[:50], int(donation_amount), message_data[:50]]
   
     details_name_worksheet.append_row(all_data)
     print("Added details with data successfully\n")
@@ -145,6 +156,9 @@ def main():
         print("Option 2 - I would like to see Donations\n")
         print("Option 3 - Exit\n")
 
+        """
+        worksheet variable
+        """
         details_name_worksheet = SHEET.worksheet("details")
 
         menu_option = input("Option... \n")
@@ -153,8 +167,10 @@ def main():
             data_name = get_name_data()
             donation_amount = get_donation_data()
             message_data = get_message()
+            
             thankyou = thank_you(data_name,donation_amount,message_data)
-            update_worksheet(data_name, donation_amount, message_data, details_name_worksheet)
+            update_worksheet(data_name, donation_amount, message_data, 
+            details_name_worksheet)
 
             total_donations = details_name_worksheet.col_values(2)[1:]
             all_donations = calculate_total(details_name_worksheet, total_donations)
@@ -169,7 +185,7 @@ def main():
 
         elif menu_option == '3':
             clear()
-            print('Thanks for visiting... Come back again soon!')
+            print("Thanks for visiting... Come back again soon!")
             break
 
         else:
