@@ -18,7 +18,7 @@ def clear():
     """
     print('\033c')
 
-def see_donations(total_donations, details_name_worksheet, all_donations):
+def see_donations(total_donations, details_name_worksheet):
 
     calculate_total(details_name_worksheet, total_donations)
 
@@ -100,6 +100,9 @@ def get_message():
     print("Feel free to leave a message on our wall for people to see")
     message_data = input("Message: ")
 
+    if len(message_data) == 0:
+        return "Anonymous"
+
     return message_data
 
 def thank_you(data_name, donation_amount, message_data):
@@ -111,9 +114,10 @@ def update_worksheet(data_name, donation_amount, message_data, details_name_work
     """
     update details worksheet to add a new row with name data
     """
-    print("...updating details\n")
-    all_data = [data_name, donation_amount, message_data]
+    print('...updating details\n')
 
+    all_data = [data_name, int(donation_amount), message_data]
+  
     details_name_worksheet.append_row(all_data)
     print("Added details with data successfully\n")
 
@@ -159,8 +163,7 @@ def main():
         elif menu_option == '2':
             clear()
             total_donations = details_name_worksheet.col_values(2)[1:]
-            all_donations = calculate_total(details_name_worksheet, total_donations)
-            see_donations(total_donations, details_name_worksheet, all_donations)
+            see_donations(total_donations, details_name_worksheet)
             ("\n")
             input('Press any button to take you back to the menu...\n')
 
