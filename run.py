@@ -127,7 +127,8 @@ def thank_you(data_name, donation_amount, message_data):
     print(f"...{message_data}\n")
 
 
-def update_worksheet(data_name, donation_amount, message_data, details_name_worksheet):
+def update_worksheet(
+        data_name, donation_amount, message_data, details_name_worksheet):
     """
     update details worksheet to add a new row with name, donation
     and message data. Cuts characters after 50 for name and message.
@@ -178,19 +179,22 @@ def main():
             donation_amount = get_donation_data()
             message_data = get_message()
 
-            thankyou = thank_you(data_name, donation_amount, message_data)
-            update_worksheet(data_name, donation_amount, message_data, details_name_worksheet)
+            thankyou = thank_you(
+                data_name, donation_amount, message_data)
+            update_worksheet(
+                data_name, donation_amount, message_data, details_name_worksheet)
 
             total_donations = details_name_worksheet.col_values(2)[1:]
-            all_donations = calculate_total(details_name_worksheet, total_donations)
-            input('Press any button to take you back to the menu...\n')
+            all_donations = calculate_total(
+                details_name_worksheet, total_donations)
+            input('Press Enter to take you back to the menu...\n')
 
         elif menu_option == '2':
             clear()
             total_donations = details_name_worksheet.col_values(2)[1:]
             see_donations(total_donations, details_name_worksheet)
             ("\n")
-            input('Press any button to take you back to the menu...\n')
+            input('Press Enter to take you back to the menu...\n')
 
         elif menu_option == '3':
             clear()
