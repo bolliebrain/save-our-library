@@ -135,11 +135,11 @@ The below shows that a line is over 80 characters wrong - I can confirm that thi
 - Problem with clear screen: 
 Was using the below to clear the screen which didnt work as soon as application was deployed in Heroku.
 
-[!clear screenold](documentation/testing/clearscreen.png)
+![clear screenold](documentation/testing/clearscreen.png)
 
 I used the below code to try and this seems to have worked.
 
-[!clear screennew](documentation/testing/clearscreen2.png)
+![clear screennew](documentation/testing/clearscreen2.png)
 
 The link can be found here: [Clear Screen:](https://stackoverflow.com/questions/2084508/clear-terminal-in-python/2084521)
 
