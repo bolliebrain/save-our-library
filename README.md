@@ -9,13 +9,13 @@ The user can interact with the application to make a donation and view other don
 The fundraising data is stored in an external Google Spreadsheet.
 
 ## Index - Table of Contents
-* [User Experience (UX)]
-* [Features]
-* [Design]
-* [Technologies Used]
-* [Testing]
-* [Deployment]
-* [Credits]
+* [User Experience (UX)](#user-experience-ux)
+* [Features](#features)
+* [Design](#design)
+* [Technologies Used](#technologies-used)
+* [Testing](#testing)
+* [Deployment](#deployment)
+* [Credits](#credits)
 
 ## User Experience (UX)
 
@@ -59,7 +59,12 @@ Option 3 - Exit
 5. See other donations and messages:
 - The user can view all donations and messages that are input retrospectively, including their own once submitted.
 - The total raised is also provided.
+
 ![See Donations](documentation/features/05-see-donations.png)
+
+- Below is an image of the data that is input into the worksheet:
+
+![Data Input](documentation/features/07-updated-worksheet.png)
 
 6. Exit:
 - The user can leave the application completely when finished and will be provided with a message.
@@ -68,9 +73,19 @@ Option 3 - Exit
 
 ### How these features support the User Stories
 
+The User Stories in the User Experiences(UX) part of this document is numbered 1 to 5. Below is a traceability matrix cross-referencing the user stories with the features, illustrating which features support which stories:
+
+![UX Experience](documentation/ux/ux-image.png)
+
 ### Features which could be implemented in the future
-- how many donations were made in a month
-- how many donations were made by a specific person
+- UI
+It would be friendlier for the user if a user-interface layer was built using HTML/ CSS and possibly Javascript.
+
+- Calculate monthly donations
+It would be interesting for the user to see how many donations were made in a time frame. This would require a date stamp.
+
+- User account
+It would be useful for the user (and for the ficitional site) to encourage users to donate often and they can see what they have donated.
 
 ## Design
 
