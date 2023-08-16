@@ -9,13 +9,13 @@ The user can interact with the application to make a donation and view other don
 The fundraising data is stored in an external Google Spreadsheet.
 
 ## Index - Table of Contents
-*[User Experience (UX)]
-*[Features]
-*[Design]
-*[Technologies Used]
-*[Testing]
-*[Deployment]
-*[Credits]
+* [User Experience (UX)]
+* [Features]
+* [Design]
+* [Technologies Used]
+* [Testing]
+* [Deployment]
+* [Credits]
 
 ## User Experience (UX)
 
@@ -37,26 +37,40 @@ Option 1 - Donate
 Option 2 - See Donations
 Option 3 - Exit
 - The user is prompted to choose one of the menu options by entering a number and if input incorrectly, an error message will be displayed until the user has input a correct option.
+
 ![Welcome Menu](documentation/features/01-welcome-menu.png)
 
-2. Donate - submit name
+2. Donate - Submit Name:
+- The Donate - Submit Name is first requested when the user selects Option 1 - Donate.
+- The user is prompted to provide a name or type anonymous if they dont want to give their details. If symbols, numbers or blank is input an error message will be displayed until the user has input a correct option.
+
 ![Submit Name](documentation/features/02-submit-name.png)
 
-3. Donate - enter amount
+3. Donate - enter amount:
+- The Donate - Enter Amount is then requested after the user has provided their name. They are asked to input how much they would like to donate, rounded to the pound. If letters, symbols or blanks are input an error message will be displayed until the user has input a correct option.
+
 ![Enter Amount](documentation/features/03-enter-amount.png)
 
-4. Donate - leave a message
+4. Donate - leave a message:
+- The Donate - leave a message is finally requested for the user to write anything down that will appear on the wall for viewers to see. This option can be left blank.
+
 ![Leave Message](documentation/features/04-leave-message.png)
 
-5. See other donations and messages
+5. See other donations and messages:
+- The user can view all donations and messages that are input retrospectively, including their own once submitted.
+- The total raised is also provided.
 ![See Donations](documentation/features/05-see-donations.png)
 
-6. Exit
+6. Exit:
+- The user can leave the application completely when finished and will be provided with a message.
+
 ![Exit](documentation/features/06-exit.png)
 
 ### How these features support the User Stories
 
 ### Features which could be implemented in the future
+- how many donations were made in a month
+- how many donations were made by a specific person
 
 ## Design
 
