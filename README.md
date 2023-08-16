@@ -90,18 +90,31 @@ It would be useful for the user (and for the ficitional site) to encourage users
 ## Design
 
 ### Flow Chart
+The diagram below outlines the flow of control within the application :
 
+![Flow Chart](documentation/flow-chart/flow-chart.png)
 ## Technologies Used
 
 ### Languages Used
 
-- [Python 3.8.10] (https://www.python.org/)
+- [Python 3.11.4] (https://www.python.org/)
+
+### Frameworks, Libraries & Programs Used
+
+- [Google Speadsheets:](https://en.wikipedia.org/wiki/Google_Sheets) used as an external data store for the Events and Bookings data used by the project.
+- [Google Drive API:](https://developers.google.com/drive/api/v3/about-sdk) used to generate credentials used in the project to securely access the Google Spreadsheet.
+- [Google Sheets API:](https://developers.google.com/sheets/api) used to support interactions (e.g. read/write functionality) between the code and data stored in the Google Spreadsheet.
+- [Google Auth:](https://google-auth.readthedocs.io/en/master/) Google authentication library for Python required to use the credentials generated for Google Drive API.
+- [Miro:] (https://miro.com/) was used to create the flow chart.
+- [Git:](https://gitscm.com/) was used for version control by utilising the Gitpod terminal to commit to Git and Push to GitHub.
+- [GitHub:](https//github.com/) is used as the repository for the projects code after being pushed from Git.
+- [Heroku:](https://heroku.com) is used to deploy the application and provides an environment in which the code can execute.
 
 ## Testing
 
 ### Validator Testing
 
-- [Python Validator](https://pep8online.com/)
+- [Python Validator](https://pep8ci.herokuapp.com/)
 
 - result for run.py
 
