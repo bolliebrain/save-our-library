@@ -141,7 +141,7 @@ I used the below code to try and this seems to have worked.
 
 ![clear screennew](documentation/testing/clearscreen2.png)
 
-The link can be found here: [Clear Screen:](https://stackoverflow.com/questions/2084508/clear-terminal-in-python/2084521)
+The link can be found here: [Clear Screen](https://stackoverflow.com/questions/2084508/clear-terminal-in-python/2084521)
 
 ## Deployment
 
@@ -180,13 +180,14 @@ The application stores data in a Google Sheet. The credentials for the communica
 
 ### Content
 - The Google spreadsheet that the application uses has the following initial data which was set up manually (fictitious):
+
 ![Google Sheet](documentation/features/07-updated-worksheet.png)
 
 ### Code
 
-- ![W3Schools](https://www.w3schools.com/python/) was used throughout to get guidance on functions and data validation.
--![Clearscreen](https://stackoverflow.com/questions/2084508/clear-terminal-in-python/2084521) was used to resolve the clear screen function.
--![Local Variables](https://www.programiz.com/python-programming/global-local-nonlocal-variables#:~:text=Python%20Local%20Variables,access%20them%20outside%20the%20function.&text=Here%2C%20the%20message%20variable%20is,be%20accessed%20within%20the%20function.) was used to access varibales within the function.
+- [W3Schools](https://www.w3schools.com/python/) was used throughout to get guidance on functions and data validation.
+- [Clearscreen](https://stackoverflow.com/questions/2084508/clear-terminal-in-python/2084521) was used to resolve the clear screen function.
+- [Local Variables](https://www.programiz.com/python-programming/global-local-nonlocal-variables#:~:text=Python%20Local%20Variables,access%20them%20outside%20the%20function.&text=Here%2C%20the%20message%20variable%20is,be%20accessed%20within%20the%20function.) was used to access varibales within the function.
 
 ### Acknowledgements
 
